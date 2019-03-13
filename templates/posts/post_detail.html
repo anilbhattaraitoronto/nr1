@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{post.title}} {% endblock %}
+
+{% block content %}
+{% if post %}
+<section class="post-detail">
+    <h6 class="category">{{post.category}}</h6>
+    <h4 class="title">{{post.title}}</h4>
+    <h4 class="author">{{post.author}}</h4>
+    <div class="content">
+        {% if post.thumbnail %}
+        <div class="thumbnail-image">
+            <img src="{{post.thumbnail.url}}" alt="{{post.title}} image" title="{{post.title}}" class="thumbnail">
+        </div>
+        {% endif %}
+        {{post.content|safe|linebreaks}}
+        <div class="topics">
+                Topics: 
+            {% for topic in post.topics.all %}
+            <a href="{{topic.get_absolute_url}}">
+                {{topic.name}} </a> 
+            {% endfor %}
+            </div>
+    </div>
+    <div class="post-date">
+        <p>Posted: {{post.posted_date}}</br>
+        Updated: {{ post.updated_date}}</p>
+    </div>
+
+</section>
+{% endif %}
+{% endblock %}

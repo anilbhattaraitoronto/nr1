@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Welcome {% endblock %}
+{% block content %}
+
+    <section class="main-posts">
+        <h2 class="page-title">Featured Posts</h2>
+            {% if posts %}
+            <section class="posts">
+                {% for post in posts %}
+                <section class="post">
+                    {% if post.thumbnail %}
+                    <div class="thumbnail-image">
+                        <img src="{{post.thumbnail.url}}" alt="{{post.title}}" title="{{post.title}}" class="thumbnail">
+                    </div>
+                    {% endif %}
+                    <h6 class="category">{{post.category}}</h6>
+                    <h3 class="title">{{post.title}}</h3>
+                    <h5 class="author">{{post.author}}</h5>
+                    <p class="content">{{post.content|safe|linebreaks|truncatewords:30}}
+                    <a href="{{post.get_absolute_url}}">Read More</a></p>
+                    <div class="topics">
+                        Topics: 
+                    {% for topic in post.topics.all %}
+                    <a href="{{topic.get_absolute_url}}">
+                        {{topic.name}} </a> 
+                    {% endfor %}
+                    </div>
+                    
+                </section>
+                {% endfor %}
+            </section>
+            {% endif %}
+    </section>
+    {% endblock %}
+    
+    
+

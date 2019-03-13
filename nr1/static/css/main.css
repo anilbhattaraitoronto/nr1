@@ -1,0 +1,220 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 95%;
+    margin: auto;
+    max-width: 1200px;
+}
+a{
+    text-decoration: none;
+}
+p{
+    padding: 8px 0;
+}
+
+.auth-nav form{
+    margin: auto;
+    width: 90%;
+    border: 1px solid white;
+}
+input{
+    display: block;
+    width: 80%;
+    left: 20%;width: 100%;
+    border: none;
+    outline: none;
+    margin-top: 16px;
+    padding: 8px 0;
+}
+.auth-nav{
+    display: flex;
+    justify-content: right;
+    margin: 10px auto;
+    background: lightgray;
+    padding: 0 8px;
+    font-family: Arial;
+}
+.auth-nav button{
+    display: block;
+    text-align: right;
+    padding: 5px 0 5px 16px;
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: steelblue;
+    font-size: 1rem;
+}
+.auth-nav button:hover{
+    background: steelblue;
+    color: white;
+}
+.modal{
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    position: fixed;
+    z-index: 1;
+    padding: 10% 2%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    overflow: auto;
+    background: gray;
+    box-shadow: 2px 2px 4px gray;
+}
+#login-modal{
+    background:steelblue;
+    margin: auto;
+    border: 1px solid blue;
+    width: 100%;
+    color: white;
+}
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+.close:hover, close:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.main-header{
+    padding: 50px 0;
+}
+.masthead{
+    color: steelblue;
+    font-size: 3rem;
+}
+.main-nav{
+    display: flex;
+}
+.main-nav a{
+    padding: 5px 16px;
+    color: steelblue;
+}
+.main-nav a:hover{
+    background: steelblue;
+    color: white;
+}
+        .dropdown{
+            position: relative;
+        }
+        .dropdown button{
+            background: none;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            color: steelblue;
+            font-size: 1rem;
+        }
+        .dropdown button:hover{
+            background: steelblue;
+            color: white;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+            z-index: 1;
+            background: lightgray;
+            color: white;
+            width: 100%;
+        }
+        .dropdown-content a{
+            display: block;
+            width: 100%;
+        }
+
+
+.container{
+    display: grid;
+    padding: 16px 0;
+    border-top: 3px solid steelblue;
+    border-bottom: 3px solid steelblue;
+    margin: 2px auto;
+}
+.container a{
+    color: steelblue;
+}
+.page-title{
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px 0;
+    border-bottom: 2px solid red;
+    text-transform: uppercase;
+}
+.post{
+    margin: 10px 0;
+    padding: 10px;
+    background: lightgray;
+    box-shadow: 1px 1px 4px gray;
+    border-top: 1px solid steelblue;
+    border-bottom: 1px solid steelblue;
+}
+.post:hover{
+    box-shadow: 2px 3px 2px gray;
+}
+.category, .title, .content{
+    margin: 8px 0;
+}
+.title{
+    font-size: 1rem;
+}
+.thumbnail{
+    max-width: 200px;
+    max-height: 120px;
+    object-fit: cover;
+    float: left;
+    margin: 0 10px;
+    border-radius: 4px;
+}
+.footer-navs{
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    background: steelblue;
+    color: white;
+}
+.section-title{
+    padding: 10px 0;
+}
+@media only screen and (min-width:450px){
+    .container{
+        grid-template-columns: 150px 1fr;
+        grid-row: auto;
+        grid-gap: 10px;
+    }
+    .sidebar1{
+        grid-area: 1/3/span 1/span 1;
+        background: lightgray;
+    }
+    .main-section{
+        grid-area: 1/2/span 1/span 1;
+        /* border: 1px solid gray; */
+    }
+    .sidebar2 {
+        grid-area: 1/1/span 1/span 1;
+        background: lightgray;
+        text-align: right;
+    }
+    .sidebar1, .main-section, .sidebar2{
+        padding: 10px 8px;
+    }
+    .posts{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 8px;
+    }
+    .footer-navs{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+   
+}

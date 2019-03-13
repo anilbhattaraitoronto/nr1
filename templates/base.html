@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Nepal Reviewed | {% block title %}{% endblock %} </title>
+</head>
+
+<body>
+
+    <nav class="auth-nav">
+            <button id="modalButton">Login / Register</button>
+            <div id="login-modal" class="modal">
+                <div class="login-form">
+                    <form action="" class="login-form">
+                        <h3 class="section-title">Please Login</h3>
+                        <span class="close">&times;</span>
+                        <input type="text">
+                        <input type="button" value="Submit">
+                    </form>
+                </div>
+                <div class="register-form">
+                    <form action="" class="login-form">
+                        <h3 class="section-title">Register Your Account</h3>
+                        <span class="close">&times;</span>
+                        <input type="text">
+                        <input type="button" value="Submit">
+                    </form>
+                </div>
+            </div>
+    </nav>
+    <header class="main-header"><h1 class="masthead">Nepal Reviewed</h1></header>
+    <nav class="main-nav">
+        <a href="{% url 'home' %}" class="nav-link"><i class="fas fa-home"></i></a>
+        <a>
+            <div class="dropdown">
+                <button>Reviews/Comments</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'article_reviews' %}" class="dropdown-link">Article Reviews</a>
+                    <a href="{% url 'book_reviews' %}" class="dropdown-link">Book Reviews</a>
+                    <a href="{% url 'commentaries' %}" class="dropdown-link">Commentaries</a>
+                </div>
+            </div>
+        </a>
+
+        {% if request.user.is_authenticated and request.user.is_superuser %}
+        <a href="{% url 'admin:index' %}" class="nav-link">NR-Admin</a>
+        {% endif %}
+    </nav>
+    
+
+    <main class="container">
+        <article class="main-section">
+            {% block content %}
+            {% endblock %}
+        </article>
+        <section class="sidebar2">
+            <section class="topics">
+                {% if topics %}
+                <h4 class="section-title">Topics</h4>
+                {% for topic in topics %}
+                <a href="{{topic.get_absolute_url}}">
+                <h5 class="title">{{topic.name}}</h5></a>
+                {% endfor %}
+                {% endif %}
+            </section>
+            <div class="categories">
+                <h4>Reviews</h4>
+                <a href="{% url 'article_reviews' %}">
+                <h5 class="title">Article Reviews</h5></a>
+                <a href="{% url 'book_reviews' %}">
+                <h5 class="title">Book Reviews</h5></a>
+                <a href="{% url 'commentaries' %}">
+                <h5 class="title">Commentaries</h5></a>
+            </div>
+            {% if authors %}
+            <h4 class="side-menu-title">Authors</h4>
+            <div class="authors">
+                {% for author in authors %}
+                <a href="{% url 'author_posts' author.id author.slug%}" class="author-posts"><h5 class="title">{{author.name}}</h5></a>
+                {% endfor %}
+            </div>
+            {% endif %}
+         
+        </section>
+    </main>
+        <footer>
+            <section class="footer-navs">
+                <nav class="footer-nav">
+                    <h4 class="footer-nav-title">About NR</h4>
+                </nav>
+                <nav class="footer-nav">
+                    <h4 class="footer-nav-title">Posts</h4>
+                </nav>
+                <nav class="footer-nav">
+                    <h4 class="footer-nav-title">Account</h4>
+                </nav>
+                <nav class="footer-nav">
+                    <h4 class="footer-nav-title">Social Media</h4>
+                </nav>
+            </section>
+            <p>&copy; Nepal Reviewed {% now 'Y' %}</p>
+        </footer>
+
+        <script>
+                var loginModal = document.querySelector('#login-modal');
+                var modalButton = document.querySelector('#modalButton');
+                var closeButtons = document.querySelectorAll('.close');
+                modalButton.addEventListener('click', (e)=>{
+                    loginModal.style.display = "grid";
+                })
+                closeButtons.forEach((button)=>{
+                    button.addEventListener('click', (e)=>{
+                        loginModal.style.display = 'none';
+                })
+                })
+                
+                window.addEventListener('click', (e)=>{
+                    if (e.target == loginModal){
+                        loginModal.style.display='none';
+                        modalButton.style.display = 'block';
+                    }
+                   
+                })
+        
+            </script>
+        
+</body>
+</html>
