@@ -125,3 +125,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'nr1/static'),]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
