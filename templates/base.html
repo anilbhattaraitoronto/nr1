@@ -13,26 +13,65 @@
 <body>
 
     <nav class="auth-nav">
+        {% if request.user.is_authenticated %}
+        <a href="#">Welcome {{user.username}} </a>
+        <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Logout">
+        </form>
+        {% else %}
             <button id="modalButton">Login / Register</button>
             <div id="login-modal" class="modal">
+                
                 <div class="login-form">
-                    <form action="" class="login-form">
+                    
+                    <form action="{% url 'login' %}" class="login-form" method="POST">
                         <h3 class="section-title">Please Login</h3>
-                        <span class="close">&times;</span>
-                        <input type="text">
-                        <input type="button" value="Submit">
+                        {% csrf_token %}
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" name="username" placeholder="username" required>
+                        <label for="login-username">Password</label>
+                        <input type="password" id="login-password" name="password" placeholder="password" required>
+                        <input type="submit" value="Login">
                     </form>
                 </div>
                 <div class="register-form">
-                    <form action="" class="login-form">
+                    <span class="close">&times;</span>
+                    <form action="{% url 'register' %}" class="login-form" method="POST">
                         <h3 class="section-title">Register Your Account</h3>
-                        <span class="close">&times;</span>
-                        <input type="text">
-                        <input type="button" value="Submit">
+                        {% csrf_token %}
+                        
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" placeholder="first name" required>
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" placeholder="last name" required>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="email" required>
+                        <label for="register_username">Username</label>
+                        <input type="text" id="register_username" name="username" placeholder="username" required>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="password" required>
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm password" required>
+                        <input type="submit" value="Register">
                     </form>
                 </div>
             </div>
+            {% endif %}
     </nav>
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        {% if 'error' in message.tags %}
+        <p class="error-message">Sorry: {{message}}</p>
+        {% else %}
+        <p class="success-message">Success: {{message}}</p>
+        {% endif %}
+
+        {% endfor %}
+    </div>
+    {% endif %}
+  
     <header class="main-header"><h1 class="masthead">Nepal Reviewed</h1></header>
     <nav class="main-nav">
         <a href="{% url 'home' %}" class="nav-link"><i class="fas fa-home"></i></a>
@@ -51,6 +90,7 @@
         <a href="{% url 'admin:index' %}" class="nav-link">NR-Admin</a>
         {% endif %}
     </nav>
+    
     
 
     <main class="container">
@@ -124,9 +164,17 @@
                         loginModal.style.display='none';
                         modalButton.style.display = 'block';
                     }
-                   
                 })
+                
+                
         
+            </script>
+            <script>
+                    var message = document.querySelector('.message-container', 'p');
+                    setTimeout(function(){
+                        message.style.display = 'none'
+                    }, 10000);
+            
             </script>
         
 </body>

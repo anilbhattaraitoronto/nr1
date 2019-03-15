@@ -84,6 +84,16 @@ input{
     text-decoration: none;
     cursor: pointer;
 }
+
+.message-container p{
+    text-align: center;
+}
+.error-message{
+    color: red;
+}
+.success-message{
+    color: green;
+}
 .main-header{
     padding: 50px 0;
 }
