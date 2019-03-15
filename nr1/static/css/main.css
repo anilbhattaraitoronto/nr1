@@ -20,8 +20,8 @@ p{
     box-sizing: border-box;
     background: none;
     color: steelblue;
-    padding: 5px;
-    font-size: 1rem;
+    padding: 3px;
+    font-size: .9rem;
     cursor: pointer;
 }
 #modalButton:hover{
@@ -45,6 +45,20 @@ p{
     margin-top: 2px;
     padding: 3px ;
     font-size: .9rem;
+    box-sizing: border-box;
+}
+#logout-form input, .auth-nav a{
+    color: steelblue;
+    outline: none;
+    border: none;
+    background: none;
+    font-size: .9rem;
+    padding: 3px 16px;
+    cursor: pointer;
+}
+#logout-form input:hover, .auth-nav a:hover{
+    background: steelblue;
+    color: white;
 }
 .auth-nav{
     display: flex;
@@ -221,6 +235,13 @@ p{
 }
 .footer-nav{
     margin: 10px auto;
+}
+.sidebar2 a{
+    display: block;
+    margin: 10px 0;
+}
+.sidebar2 a:hover{
+    color: darkgoldenrod;
 }
 @media only screen and (min-width:450px){
     .container{

@@ -104,24 +104,24 @@
                 <h4 class="section-title">Topics</h4>
                 {% for topic in topics %}
                 <a href="{{topic.get_absolute_url}}">
-                <h5 class="title">{{topic.name}}</h5></a>
+                {{topic.name}}</a>
                 {% endfor %}
                 {% endif %}
             </section>
             <div class="categories">
                 <h4>Reviews</h4>
                 <a href="{% url 'article_reviews' %}">
-                <h5 class="title">Article Reviews</h5></a>
+                Article Reviews</a>
                 <a href="{% url 'book_reviews' %}">
-                <h5 class="title">Book Reviews</h5></a>
+                Book Reviews</a>
                 <a href="{% url 'commentaries' %}">
-                <h5 class="title">Commentaries</h5></a>
+                Commentaries</a>
             </div>
             {% if authors %}
             <h4 class="side-menu-title">Authors</h4>
             <div class="authors">
                 {% for author in authors %}
-                <a href="{% url 'author_posts' author.id author.slug%}" class="author-posts"><h5 class="title">{{author.name}}</h5></a>
+                <a href="{% url 'author_posts' author.id author.slug%}" class="author-posts">{{author.name}}</a>
                 {% endfor %}
             </div>
             {% endif %}
