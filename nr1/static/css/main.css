@@ -4,6 +4,9 @@
     padding: 0;
     font-size: 104%;
 }
+h1{
+    font-size: 200%;
+}
 body{
     width: 95%;
     margin: auto;
