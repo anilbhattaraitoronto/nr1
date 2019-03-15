@@ -15,18 +15,18 @@
     <nav class="auth-nav">
         {% if request.user.is_authenticated %}
         <a href="#">Welcome {{user.username}} </a>
-        <form action="{% url 'logout' %}" method="POST">
+        <form action="{% url 'logout' %}" method="POST" id="logout-form">
             {% csrf_token %}
             <input type="submit" value="Logout">
         </form>
         {% else %}
             <button id="modalButton">Login / Register</button>
             <div id="login-modal" class="modal">
-                
+                <span class="close">&times;</span>
+                <section class="auth-forms">
                 <div class="login-form">
-                    
+                    <h3 class="form-title">Please Login</h3>
                     <form action="{% url 'login' %}" class="login-form" method="POST">
-                        <h3 class="section-title">Please Login</h3>
                         {% csrf_token %}
                         <label for="login-username">Username</label>
                         <input type="text" id="login-username" name="username" placeholder="username" required>
@@ -34,13 +34,14 @@
                         <input type="password" id="login-password" name="password" placeholder="password" required>
                         <input type="submit" value="Login">
                     </form>
+                    <p>If you are not registered, please register first and then login.</p> 
+                    <h4>Our Privacy Commitment</h4>
+                    <p>Your login and register data is encrypted and secure. We take your personal privacy very seriously and will not sell it to any third parties.</p>
                 </div>
                 <div class="register-form">
-                    <span class="close">&times;</span>
+                    <h3 class="form-title">Register Your Account</h3>
                     <form action="{% url 'register' %}" class="login-form" method="POST">
-                        <h3 class="section-title">Register Your Account</h3>
                         {% csrf_token %}
-                        
                         <label for="first_name">First Name</label>
                         <input type="text" id="first_name" name="first_name" placeholder="first name" required>
                         <label for="last_name">Last Name</label>
@@ -56,6 +57,7 @@
                         <input type="submit" value="Register">
                     </form>
                 </div>
+            </section>
             </div>
             {% endif %}
     </nav>
@@ -74,10 +76,10 @@
   
     <header class="main-header"><h1 class="masthead">Nepal Reviewed</h1></header>
     <nav class="main-nav">
-        <a href="{% url 'home' %}" class="nav-link"><i class="fas fa-home"></i></a>
+        <a href="{% url 'home' %}" class="nav-link"><i class="fas fa-home"></i> Home</a>
         <a>
             <div class="dropdown">
-                <button>Reviews/Comments</button>
+                <button>Reviews</button>
                 <div class="dropdown-content">
                     <a href="{% url 'article_reviews' %}" class="dropdown-link">Article Reviews</a>
                     <a href="{% url 'book_reviews' %}" class="dropdown-link">Book Reviews</a>
@@ -151,7 +153,7 @@
                 var modalButton = document.querySelector('#modalButton');
                 var closeButtons = document.querySelectorAll('.close');
                 modalButton.addEventListener('click', (e)=>{
-                    loginModal.style.display = "grid";
+                    loginModal.style.display = "block";
                 })
                 closeButtons.forEach((button)=>{
                     button.addEventListener('click', (e)=>{
@@ -165,15 +167,12 @@
                         modalButton.style.display = 'block';
                     }
                 })
-                
-                
-        
             </script>
             <script>
                     var message = document.querySelector('.message-container', 'p');
                     setTimeout(function(){
                         message.style.display = 'none'
-                    }, 10000);
+                    }, 4000);
             
             </script>
         
