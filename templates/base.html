@@ -23,7 +23,7 @@
             <button id="modalButton">Login / Register</button>
             <div id="login-modal" class="modal">
                 <span class="close">&times;</span>
-                <section class="auth-forms">
+            <section class="auth-forms">
                 <div class="login-form">
                     <h3 class="form-title">Please Login</h3>
                     <form action="{% url 'login' %}" class="login-form" method="POST">
@@ -34,9 +34,6 @@
                         <input type="password" id="login-password" name="password" placeholder="password" required>
                         <input type="submit" value="Login">
                     </form>
-                    <p>If you are not registered, please register first and then login.</p> 
-                    <h4>Our Privacy Commitment</h4>
-                    <p>Your login and register data is encrypted and secure. We take your personal privacy very seriously and will not sell it to any third parties.</p>
                 </div>
                 <div class="register-form">
                     <h3 class="form-title">Register Your Account</h3>
@@ -56,6 +53,13 @@
                         <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm password" required>
                         <input type="submit" value="Register">
                     </form>
+                </div>
+                <div class="privacy">
+                    <h3 class="form-title">Our Privacy Statement</h3>
+                    <section class="privacy-content">
+                        <p>If you are not registered, please register first and then login.</p> 
+                        <p>Your login and registration data is encrypted and secure. We take your personal privacy very seriously and will not sell any of your data to any third parties. We might use some of your data, such as email and name, to communicate only with you. Thank you always for using this site. </p>
+                    </section>
                 </div>
             </section>
             </div>

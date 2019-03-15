@@ -32,9 +32,11 @@ p{
 .auth-nav .auth-forms form{
     margin: 10px auto;
     width: 100%;
-    border: 1px solid white;
-    padding: 3px;
+    padding:10px;
     box-sizing: border-box;
+    background: gray;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 8px;
 }
 .auth-nav .auth-forms input, .auth-nav .auth-forms label{
     display: block;
@@ -46,6 +48,7 @@ p{
     padding: 3px ;
     font-size: .9rem;
     box-sizing: border-box;
+    border-radius: 3px;
 }
 #logout-form input, .auth-nav a{
     color: steelblue;
@@ -90,7 +93,21 @@ p{
 .auth-forms{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-column-gap: 10px
+    grid-column-gap: 10px;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    justify-content: space-evenly;
+}
+.privacy-content{
+    margin: 10px auto;
+    padding: 10px;
+    background: gray;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 8px;
+}
+.privacy-content p{
+    font-size: .9rem;
 }
 #login-modal{
     display: relative;
@@ -98,7 +115,9 @@ p{
     color: white;
 }
 .form-title{
+    background: white;
     color: rgb(44, 66, 3);
+    text-align: center;
 }
 .close{
     display: absolute;
