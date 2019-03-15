@@ -145,6 +145,7 @@ p{
     color: steelblue;
     font-size: .9rem;
     padding: 5px 16px;
+    min-width: 120px;
 }
 .dropdown button:hover{
     background: steelblue;
