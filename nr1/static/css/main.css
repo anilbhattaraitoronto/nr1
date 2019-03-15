@@ -179,7 +179,7 @@ p{
     color: steelblue;
     font-size: 1rem;
     padding: 5px 16px;
-    min-width: 120px;
+    min-width: 150px;
 }
 .dropdown button:hover{
     background: steelblue;
