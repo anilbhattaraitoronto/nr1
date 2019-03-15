@@ -233,11 +233,24 @@ p{
 .post:hover{
     box-shadow: 2px 3px 2px gray;
 }
-.category, .title, .content{
+.category, .post-title, .content{
     margin: 8px 0;
 }
-.title{
-    font-size: 1rem;
+.category, .author{
+    font-style: italic;
+    font-weight: normal;
+}
+.category{
+    color: green;
+    font-size: .9rem;
+
+}
+.post-title{
+    font-size: 1.6rem;
+    padding: 8px 0;
+}
+.author{
+    margin: 4px 0;
 }
 .thumbnail{
     max-width: 200px;

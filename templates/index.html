@@ -15,7 +15,7 @@
                     </div>
                     {% endif %}
                     <h6 class="category">{{post.category}}</h6>
-                    <h3 class="title">{{post.title}}</h3>
+                    <h3 class="post-title">{{post.title}}</h3>
                     <h5 class="author">{{post.author}}</h5>
                     <p class="content">{{post.content|safe|linebreaks|truncatewords:30}}
                     <a href="{{post.get_absolute_url}}">Read More</a></p>
