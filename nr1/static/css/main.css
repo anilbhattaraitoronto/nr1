@@ -243,6 +243,12 @@ p{
     margin: 0 10px;
     border-radius: 4px;
 }
+.content-image{
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    padding: 10px;
+}
 .footer-navs{
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;

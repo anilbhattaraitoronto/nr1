@@ -11,7 +11,7 @@
     <div class="content">
         {% if post.thumbnail %}
         <div class="thumbnail-image">
-            <img src="{{post.thumbnail.url}}" alt="{{post.title}} image" title="{{post.title}}" class="thumbnail">
+            <img src="{{post.thumbnail.url}}" alt="{{post.title}} image" title="{{post.title}}" class="content-image">
         </div>
         {% endif %}
         {{post.content|safe|linebreaks}}
