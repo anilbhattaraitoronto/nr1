@@ -35,7 +35,8 @@ p{
 }
 
 .auth-nav .auth-forms form, .privacy{
-    margin: 10px auto;
+    margin: 0px auto;
+    padding: 10px 0;
     width: 100%;
     padding:10px;
     max-width: 650px;
@@ -64,6 +65,24 @@ p{
     font-size: .9rem;
     padding: 3px 16px;
     cursor: pointer;
+}
+.auth-tabs{
+    margin: 0;
+}
+.auth-tab-button{
+    border: none;
+    box-sizing: border-box;
+    margin:0;
+    outline: 0;
+    padding: 5px 8px;
+    width: 120px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background: lightgray;
+}
+.active{
+    background: green;
+    color: white;
 }
 #logout-form input:hover, .auth-nav a:hover{
     background: steelblue;

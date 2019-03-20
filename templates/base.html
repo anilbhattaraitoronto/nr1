@@ -23,11 +23,10 @@
             <button id="modalButton">Login / Register</button>
             <div id="login-modal" class="modal">
             <section class="auth-tabs">
-                
-                <button id="login-tab">Login</button>
-                <button id="register-tab">Register</button>
-                <button id="privacy-tab">Privacy</button>
-                <button class="close">&times; close this page </button>
+                <button id="login-tab" class="active auth-tab-button">Login</button>
+                <button id="register-tab" class="auth-tab-button">Register</button>
+                <button id="privacy-tab" class="auth-tab-button">Privacy</button>
+                <button class="close auth-tab-button">&times; close</button>
             </section>
             <section class="auth-forms">
                 <div class="login-form">
@@ -71,36 +70,7 @@
                 </div>
             </section>
             </div>
-            <script>
-                
-                var loginForm = document.querySelector('.login-form');
-                var registerForm = document.querySelector('.register-form')
-                var privacy = document.querySelector('.privacy')
-                var loginTab = document.querySelector('#login-tab')
-                var registerTab = document.querySelector('#register-tab')
-                var privacyTab = document.querySelector('#privacy-tab')
-                //initial condition of the modal
-                function hideForms(){
-                    registerForm.style.display = 'none';
-                    privacy.style.display = 'none';
-                }
-                hideForms();
-                loginTab.addEventListener('click', ()=>{
-                    loginForm.style.display = 'block';
-                    registerForm.style.display = 'none';
-                    privacy.style.display = 'none';
-                })
-                registerTab.addEventListener('click', ()=>{
-                    loginForm.style.display = 'none';
-                    privacy.style.display = 'none';
-                    registerForm.style.display = 'block';
-                })
-                privacyTab.addEventListener('click', ()=>{
-                    privacy.style.display = 'block';
-                    loginForm.style.display = 'none';
-                    registerForm.style.display = 'none';
-                })
-            </script>
+            
             <style>
                 .auth-tabs{
                     text-align: center;
@@ -193,33 +163,68 @@
             <p>&copy; Nepal Reviewed {% now 'Y' %}</p>
         </footer>
 
-        <script>
-                var loginModal = document.querySelector('#login-modal');
-                var modalButton = document.querySelector('#modalButton');
-                var closeButtons = document.querySelectorAll('.close');
-                modalButton.addEventListener('click', (e)=>{
-                    loginModal.style.display = "block";
-                })
-                closeButtons.forEach((button)=>{
-                    button.addEventListener('click', (e)=>{
-                        loginModal.style.display = 'none';
-                })
-                })
-                
-                window.addEventListener('click', (e)=>{
-                    if (e.target == loginModal){
-                        loginModal.style.display='none';
-                        modalButton.style.display = 'block';
-                    }
-                })
-            </script>
-            <script>
-                    var message = document.querySelector('.message-container', 'p');
-                    setTimeout(function(){
-                        message.style.display = 'none'
-                    }, 4000);
-            
-            </script>
+<script>
+    var loginModal = document.querySelector('#login-modal');
+    var modalButton = document.querySelector('#modalButton');
+    var closeButtons = document.querySelectorAll('.close');
+    modalButton.addEventListener('click', (e)=>{
+        loginModal.style.display = "block";
+    })
+    closeButtons.forEach((button)=>{
+        button.addEventListener('click', (e)=>{
+            loginModal.style.display = 'none';
+    })
+    })
+    
+    window.addEventListener('click', (e)=>{
+        if (e.target == loginModal){
+            loginModal.style.display='none';
+            modalButton.style.display = 'block';
+        }
+    })
+</script>
+<script>
+
+    var loginForm = document.querySelector('.login-form');
+    var registerForm = document.querySelector('.register-form');
+    var privacy = document.querySelector('.privacy');
+    var loginTab = document.querySelector('#login-tab');
+    var registerTab = document.querySelector('#register-tab');
+    var privacyTab = document.querySelector('#privacy-tab');
+   
+    function displayForms(x, y, z){
+        x.style.display = 'none';
+        y.style.display = 'none';
+        z.style.display = 'block';
+    }
+  
+    displayForms(registerForm, privacy, loginForm);
+    
+    loginTab.addEventListener('click', ()=>{
+        displayForms(registerForm, privacy, loginForm);
+        loginTab.classList.add('active')
+        registerTab.classList.remove('active')
+        privacyTab.classList.remove('active')
+    })
+    registerTab.addEventListener('click', ()=>{
+        displayForms(loginForm, privacy, registerForm);
+        registerTab.classList.add('active')
+        loginTab.classList.remove('active')
+        privacyTab.classList.remove('active')
+    })
+    privacyTab.addEventListener('click', ()=>{
+        displayForms(loginForm, registerForm, privacy);
+        loginTab.classList.remove('active')
+        registerTab.classList.remove('active')
+        privacyTab.classList.add('active')
+    })
+</script>
+<script>
+    var message = document.querySelector('.message-container', 'p');
+    setTimeout(function(){
+        message.style.display = 'none'
+    }, 4000);
+</script>
         
 </body>
 </html>

@@ -68,6 +68,8 @@ def activate_registration(request, uidb64, token):
     else:
         messages.error(request, 'Sorry. Your activation token is invalid. Please register again!')
         return redirect('home')
+
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
