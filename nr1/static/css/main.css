@@ -28,6 +28,7 @@ p{
     padding: 3px;
     font-size: .9rem;
     cursor: pointer;
+    transition: background 1s, color 1s;
 }
 #modalButton:hover{
     background: steelblue;
@@ -40,7 +41,7 @@ p{
     width: 100%;
     max-width: 600px;
     box-sizing: border-box;
-    background:darkolivegreen;
+    background:steelblue;
     box-shadow: 2px 2px 4px black;
     border-radius: 8px;
 }
@@ -64,6 +65,7 @@ p{
     font-size: .9rem;
     padding: 3px 16px;
     cursor: pointer;
+    transition: color 500ms, background 500ms;
 }
 .auth-tabs{
     margin: 0;
@@ -96,6 +98,7 @@ p{
     background: lightgray;
     font-family: Arial;
 }
+
 .auth-nav #login-modal form input[type='submit']{
     outline: none;
     border: none;
@@ -105,7 +108,6 @@ p{
 }
 
 .modal{
-    display: none;
     position: fixed;
     z-index: 1;
     padding: 2% 1%;
@@ -114,7 +116,6 @@ p{
     width: 100%;
     height: 80%;
     overflow: auto;
-    background: gray;
 }
 .auth-forms{
     display: grid;
@@ -136,10 +137,12 @@ p{
     font-size: .9rem;
 }
 #login-modal{
-    display: relative;
+    display: none;
     background:steelblue;
     color: white;
+    transition: display 2s ease 2s;
 }
+
 .form-title{
     background: white;
     color: rgb(44, 66, 3);
@@ -185,6 +188,7 @@ p{
 .main-nav a{
     padding: 5px 16px;
     color: steelblue;
+    transition: color 1s, background 1s;
 }
 .main-nav a:hover{
     background: steelblue;
@@ -202,6 +206,7 @@ p{
     font-size: 1rem;
     padding: 5px 16px;
     min-width: 150px;
+    transition: color 1s, background 1s;
 }
 .dropdown button:hover{
     background: steelblue;
