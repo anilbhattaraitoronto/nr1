@@ -129,10 +129,12 @@ p{
     max-width: 1000px;
     margin: auto;
     justify-content: space-evenly;
-    animation-name: animatetop;
+    animation-name: animateauth;
     animation-duration: 1000ms;
    
 }
+
+
 .privacy-content{
     margin: 10px auto;
     padding: 10px;
@@ -149,13 +151,15 @@ p{
     left: 0px;
     background:steelblue;
     color: white;
+    font-size: 1.3rem;
+    transform: scale(.8, .8);
     animation-name: animatetop;
     animation-duration: 1000ms;
     
 }
 @keyframes animatetop{
-    from {left: -1000px; opacity: 0}
-    to {left: 0; opacity: 1}
+    from {transform: scale(.2, .2); opacity: 0;}
+    to {transform: scale(.8, .8); opacity: 1;}
 }
 
 .form-title{
