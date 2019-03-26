@@ -44,6 +44,7 @@ p{
     background:steelblue;
     box-shadow: 2px 2px 4px black;
     border-radius: 8px;
+    
 }
 .auth-nav .auth-forms input, .auth-nav .auth-forms label{
     display: block;
@@ -108,14 +109,17 @@ p{
 }
 
 .modal{
+    display: none;
     position: fixed;
     z-index: 1;
     padding: 2% 1%;
     left: 0;
     top: 0;
     width: 100%;
-    height: 80%;
+    height: 60%;
+    margin: auto;
     overflow: auto;
+    box-shadow: 4px 4px 8px gray, 4px 4px 8px black;
 }
 .auth-forms{
     display: grid;
@@ -125,6 +129,9 @@ p{
     max-width: 1000px;
     margin: auto;
     justify-content: space-evenly;
+    animation-name: animatetop;
+    animation-duration: 1000ms;
+   
 }
 .privacy-content{
     margin: 10px auto;
@@ -138,9 +145,17 @@ p{
 }
 #login-modal{
     display: none;
+    top: 0;
+    left: 0px;
     background:steelblue;
     color: white;
-    transition: display 2s ease 2s;
+    animation-name: animatetop;
+    animation-duration: 1000ms;
+    
+}
+@keyframes animatetop{
+    from {left: -1000px; opacity: 0}
+    to {left: 0; opacity: 1}
 }
 
 .form-title{
